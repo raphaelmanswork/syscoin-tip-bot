@@ -4,7 +4,7 @@ import { TokenInfo } from "types/token-info";
 export const supportedTokens: Record<ERC20Token, TokenInfo> = {
   PSYS: {
     symbol: "PSYS",
-    address: "0xE90D470a0f763dF0a917828fDe152753DcA99aA2",
+    address: "0x81821498cD456c9f9239010f3A9F755F3A38A778",
   },
   ETK: {
     symbol: "ETK",
