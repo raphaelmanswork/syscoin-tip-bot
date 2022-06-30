@@ -8,6 +8,10 @@ import {
 } from "services";
 import { MessageConfigI } from "services/bot-message-service";
 import groupHandlerUtils from "./group-handler-utils";
+import { Contract } from "web3-eth-contract/types";
+import { ERC20Token } from "types/supported-erc20-token";
+import { validateBalance } from "shared/utils";
+
 export const createActiveAirdrop = async (bot: TelegramBot, update: Update) => {
   const {
     chat: { id, title },
@@ -40,9 +44,10 @@ export const createActiveAirdrop = async (bot: TelegramBot, update: Update) => {
   };
   const tokens = (text ?? "").split(" ");
 
-  const properSyntax = "Must be: `/active_airdrop <amount> <count>`";
+  const properSyntax =
+    "Must be: `/active_airdrop <amount> <count>` or `/active_airdrop <token> <amount> <count>`";
 
-  if (tokens.length !== 3) {
+  if (tokens.length !== 3 && tokens.length !== 4) {
     await bot.sendMessage(
       id,
       `*Invalid Syntax*:\n${properSyntax}`,
@@ -51,7 +56,16 @@ export const createActiveAirdrop = async (bot: TelegramBot, update: Update) => {
     return;
   }
 
-  const [_, amountInText, countInText] = (text ?? "").split(" ");
+  const { amountInText, numberWinnersInText, tokenSymbol } =
+    parseTokens(tokens);
+
+  if (tokenSymbol) {
+    if (!Object.values(ERC20Token).includes(tokenSymbol as ERC20Token)) {
+      const message = "Invalid token.";
+      await bot.sendMessage(id, message, sendMessageConfig);
+      return;
+    }
+  }
 
   const amount = Number(amountInText);
   if (isNaN(amount) || amount <= 0) {
@@ -62,6 +76,27 @@ export const createActiveAirdrop = async (bot: TelegramBot, update: Update) => {
     return;
   }
 
+  const numberOfWinners = Number(numberWinnersInText);
+  if (isNaN(numberOfWinners) || numberOfWinners <= 0) {
+    await botMessageService.invalidAmountTextMsg(
+      numberWinnersInText,
+      botMessageConfig
+    );
+    return;
+  }
+
+  let tokenContract: Contract | null = null;
+
+  if (tokenSymbol) {
+    tokenContract = await transactionService.getContractByToken(
+      tokenSymbol as ERC20Token
+    );
+    if (!tokenContract) {
+      console.error(`Failed to get ${tokenSymbol} contract`);
+      return;
+    }
+  }
+
   const wallet = await walletService.getWallet(userId);
 
   if (!wallet) {
@@ -69,25 +104,22 @@ export const createActiveAirdrop = async (bot: TelegramBot, update: Update) => {
     return;
   }
 
-  const isBalanceSufficient =
-    await transactionService.validateSufficientBalance(wallet.address, amount);
+  const isBalanceSufficient = await validateBalance(
+    wallet.address,
+    amount,
+    tokenContract
+  );
 
   if (!isBalanceSufficient) {
     await botMessageService.insufficientBalance(botMessageConfig);
     return;
   }
 
-  const count = Number(countInText);
-  if (isNaN(count) || count <= 0) {
-    await botMessageService.invalidAmountTextMsg(countInText, botMessageConfig);
-    return;
-  }
-
-  const supportedToken = "SYS";
+  const supportedToken = tokenSymbol ?? "SYS";
 
   const botMessage = await bot.sendMessage(
     id,
-    `*An airdrop has been created.*\n*${amount} ${supportedToken}* will be shared among maximum of *${count}* lucky individual/s.\n\n_Join now for a chance to win ${supportedToken}!_`,
+    `*An airdrop has been created.*\n*${amount} ${supportedToken}* will be shared among maximum of *${numberOfWinners}* lucky individual/s.\n\n_Join now for a chance to win ${supportedToken}!_`,
     {
       parse_mode: "Markdown",
       reply_to_message_id: message_id,
@@ -102,16 +134,17 @@ export const createActiveAirdrop = async (bot: TelegramBot, update: Update) => {
           [
             {
               text: "Close",
-              callback_data: CallbackData.CloseAirdrop,
+              callback_data: `${CallbackData.CloseAirdrop}:${supportedToken}`,
             },
           ],
         ],
       },
     }
   );
+
   const activeAirdrop = await activeAirdropService.createActiveAirdrop(
     amount,
-    count,
+    numberOfWinners,
     botMessage
   );
 
@@ -123,3 +156,23 @@ export const createActiveAirdrop = async (bot: TelegramBot, update: Update) => {
     await bot.sendMessage(from!.id, `Failed to create an airdrop for ${title}`);
   }
 };
+
+function parseTokens(tokens: string[]): {
+  amountInText: string;
+  numberWinnersInText: string;
+  tokenSymbol?: string;
+} {
+  if (tokens.length === 4) {
+    const [_, tokenSymbol, amountInText, numberWinnersInText] = tokens;
+    return {
+      tokenSymbol,
+      amountInText,
+      numberWinnersInText,
+    };
+  }
+  const [_, amountInText, numberWinnersInText] = tokens;
+  return {
+    amountInText,
+    numberWinnersInText,
+  };
+}

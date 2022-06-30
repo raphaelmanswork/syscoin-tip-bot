@@ -1,7 +1,10 @@
 import { BotCommand } from "node-telegram-bot-api";
-import { walletService } from "services";
+import { transactionService, walletService } from "services";
+import { ERC20Contract } from "services/interfaces";
 import web3 from "services/web3";
 import { TransactionConfig } from "web3-core";
+import { AllowanceError } from "./utils/AllowanceError";
+import { Wallet } from "@db";
 
 const standardCommands: BotCommand[] = [
   {
@@ -24,6 +27,11 @@ const privateChatCommands: BotCommand[] = [
     command: "/send",
     description:
       "<address> <amount> : Sends token to an address with the specified amount.",
+  },
+  {
+    command: "/allowance",
+    description:
+      "<token> <amount> : Gives the Bot an allowance to make ERC20 token transaction",
   },
   {
     command: "/wallet_info",
@@ -82,14 +90,13 @@ export const stringifyBotCommands = (commands: BotCommand[]) => {
 export function generateAirdropMessage(
   addresses: string[],
   transactionConfig: TransactionConfig,
-  rawTransaction: string
+  rawTransaction: string,
+  amount: number,
+  tokenSymbol?: string
 ) {
-  const amountFromWei = web3.utils.fromWei(
-    transactionConfig.value!.toString(),
-    "ether"
-  );
+  const symbol = tokenSymbol ?? "SYS";
 
-  return `Confirming your transaction:\n\nWinners: \`${addresses}\`\n\nContract Address: ${transactionConfig.to}\n\nAmount: ${amountFromWei}\n\nPlease reply "yes" to this message to confirm.\n\n\nRAW Transaction: ${rawTransaction}`;
+  return `Confirming your transaction:\n\nWinners: \`${addresses}\`\n\nContract Address: ${transactionConfig.to}\n\nAmount: ${amount} ${symbol}\n\nPlease reply "yes" to this message to confirm.\n\n\nRAW Transaction: ${rawTransaction}`;
 }
 
 export const getAirdropWinners = async (tokens: string[]) => {
@@ -105,7 +112,7 @@ export const getAirdropWinners = async (tokens: string[]) => {
     await Promise.all(
       addresses?.map(async (addr) => {
         const wallet = await walletService.getWalletByAddress(addr);
-        return `@${wallet?.username}`;
+        return wallet?.username ? `@${wallet?.username}` : wallet?.firstname;
       })!
     )
   ).join("\n");
@@ -115,6 +122,48 @@ export const getContractAddressLink = () => {
   const explorerLink =
     process.env.EXPLORER_LINK ?? "https://explorer.syscoin.org";
   return `${explorerLink}/address/${process.env.CONTRACT_ADDRESS}`;
+};
+
+export const validateAllowance = async function (
+  amount: number,
+  contract: ERC20Contract,
+  wallet: Wallet
+): Promise<boolean> {
+  const botContractAddress = process.env.CONTRACT_ADDRESS!;
+  const isAllowanceValid = await transactionService.validateAllowance(
+    amount,
+    contract,
+    wallet.address,
+    botContractAddress
+  );
+  if (!isAllowanceValid) {
+    throw new AllowanceError();
+  }
+  return isAllowanceValid;
+};
+
+export const validateBalance = async function (
+  address: string,
+  amount: number,
+  contract?: ERC20Contract | null
+): Promise<Boolean> {
+  let isBalanceSufficient = false;
+
+  if (contract) {
+    isBalanceSufficient =
+      await transactionService.validateSufficientBalanceByContract(
+        contract,
+        address,
+        amount
+      );
+  } else {
+    isBalanceSufficient = await transactionService.validateSufficientBalance(
+      address,
+      amount
+    );
+  }
+
+  return isBalanceSufficient;
 };
 
 export const botCommands = {

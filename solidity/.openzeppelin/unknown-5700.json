@@ -1,0 +1,155 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0xcb51BD00FaB87355F84FfDFa827C6D3146766fAc",
+    "txHash": "0x19f4c362aabffe630f1c78ab84972e30a9d65d5f613b7b2ff22940fcd76ec66b"
+  },
+  "proxies": [
+    {
+      "address": "0xcf4399168f4526F7a6cf6111ECE4bE0A66ffc51E",
+      "txHash": "0xf7b9d95f59bc16d3502bd9a73eeee419b304af4564d01dc9b472e827dd07cc9c",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "7c09a574ed130dd2f39e66dfb18bb5404cd84652b5aca554e89240f6650cde15": {
+      "address": "0x8ABe0E369aCFF73A2245178D8e8001E65dBa1dC2",
+      "txHash": "0xf8e6bd29c7003be1c350c0dc4fdca08876df60a05e1f710a1b9e399afed5be8a",
+      "layout": {
+        "storage": [
+          {
+            "contract": "AccessControl",
+            "label": "_roles",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)463_storage)",
+            "src": "../@openzeppelin/contracts/access/AccessControl.sol:55"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_uint8",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:62",
+            "retypedFrom": "bool"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "../@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:67"
+          },
+          {
+            "contract": "AccessControlEnumerable",
+            "label": "_roleMembers",
+            "type": "t_mapping(t_bytes32,t_struct(AddressSet)2019_storage)",
+            "src": "../@openzeppelin/contracts/access/AccessControlEnumerable.sol:16"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "_status",
+            "type": "t_uint256",
+            "src": "../@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:38"
+          },
+          {
+            "contract": "ReentrancyGuardUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "../@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol:74"
+          },
+          {
+            "contract": "TipBot",
+            "label": "feeRate",
+            "type": "t_uint256",
+            "src": "../project:/contracts/TipBot.sol:26"
+          },
+          {
+            "contract": "TipBot",
+            "label": "airdropRate",
+            "type": "t_uint256",
+            "src": "../project:/contracts/TipBot.sol:27"
+          },
+          {
+            "contract": "TipBot",
+            "label": "signatureLookup",
+            "type": "t_mapping(t_bytes_memory_ptr,t_mapping(t_address,t_bool))",
+            "src": "../project:/contracts/TipBot.sol:29"
+          }
+        ],
+        "types": {
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_mapping(t_bytes_memory_ptr,t_mapping(t_address,t_bool))": {
+            "label": "mapping(bytes => mapping(address => bool))"
+          },
+          "t_bytes_storage": {
+            "label": "bytes"
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_mapping(t_bytes32,t_struct(AddressSet)2019_storage)": {
+            "label": "mapping(bytes32 => struct EnumerableSet.AddressSet)"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_struct(AddressSet)2019_storage": {
+            "label": "struct EnumerableSet.AddressSet",
+            "members": [
+              {
+                "label": "_inner",
+                "type": "t_struct(Set)1718_storage"
+              }
+            ]
+          },
+          "t_struct(Set)1718_storage": {
+            "label": "struct EnumerableSet.Set",
+            "members": [
+              {
+                "label": "_values",
+                "type": "t_array(t_bytes32)dyn_storage"
+              },
+              {
+                "label": "_indexes",
+                "type": "t_mapping(t_bytes32,t_uint256)"
+              }
+            ]
+          },
+          "t_array(t_bytes32)dyn_storage": {
+            "label": "bytes32[]"
+          },
+          "t_mapping(t_bytes32,t_uint256)": {
+            "label": "mapping(bytes32 => uint256)"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)463_storage)": {
+            "label": "mapping(bytes32 => struct AccessControl.RoleData)"
+          },
+          "t_struct(RoleData)463_storage": {
+            "label": "struct AccessControl.RoleData",
+            "members": [
+              {
+                "label": "members",
+                "type": "t_mapping(t_address,t_bool)"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

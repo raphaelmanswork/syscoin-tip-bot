@@ -45,6 +45,8 @@ module.exports = {
       websocket: true, // Enable EventEmitter interface for web3 (default: false)
       network_id: 5700,
       gas: 8000000, // gas should be no higher than 8m
+      maxFeePerGas: 1500010000,
+      maxPriorityFeePerGas: 15000000000,
     },
     maticTestnet: {
       provider: function () {
@@ -78,5 +80,5 @@ module.exports = {
       // }
     },
   },
-  plugins: ["truffle-flatten"],
+  plugins: ["truffle-flatten", "truffle-plugin-verify"],
 };

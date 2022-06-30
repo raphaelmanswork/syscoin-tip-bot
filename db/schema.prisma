@@ -11,6 +11,7 @@ datasource db {
 
 model Wallet {
   userId     BigInt  @unique
+  firstname  String  @default("")
   username   String? @unique
   address    String  @unique
   privateKey String  @unique

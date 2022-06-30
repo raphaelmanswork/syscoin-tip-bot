@@ -71,6 +71,19 @@ export class BotMessageService {
     );
   }
 
+  async invalidAllowance(
+    amount: number,
+    config: MessageConfigI
+  ): Promise<void> {
+    await config.bot.sendMessage(
+      config.chatId,
+      `Allowance that has been set is less than the specified amount: ${amount}.\nPlease type command \`/allowance <token> <amount>\` to set new allowance.`,
+      {
+        parse_mode: "Markdown",
+      }
+    );
+  }
+
   get confirmTxReplyMarkup(): InlineKeyboardMarkup {
     return {
       inline_keyboard: [

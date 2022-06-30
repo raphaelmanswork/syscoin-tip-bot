@@ -20,6 +20,16 @@ const walletRepository = {
       },
     });
   },
+  updateWallet: async (userId: number, { firstname, username }: Wallet) =>
+    db.wallet.update({
+      data: {
+        username,
+        firstname,
+      },
+      where: {
+        userId,
+      },
+    }),
   getWalletByAddress: async (address: string) =>
     db.wallet.findFirst({
       where: {

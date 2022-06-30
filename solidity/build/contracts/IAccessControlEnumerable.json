@@ -231,18 +231,18 @@
     "absolutePath": "@openzeppelin/contracts/access/IAccessControlEnumerable.sol",
     "exportedSymbols": {
       "IAccessControl": [
-        506
+        950
       ],
       "IAccessControlEnumerable": [
-        531
+        975
       ]
     },
-    "id": 532,
+    "id": 976,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 508,
+        "id": 952,
         "literals": [
           "solidity",
           "^",
@@ -250,17 +250,17 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "104:23:3"
+        "src": "104:23:6"
       },
       {
         "absolutePath": "@openzeppelin/contracts/access/IAccessControl.sol",
         "file": "./IAccessControl.sol",
-        "id": 509,
+        "id": 953,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 532,
-        "sourceUnit": 507,
-        "src": "129:30:3",
+        "scope": 976,
+        "sourceUnit": 951,
+        "src": "129:30:6",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -269,64 +269,64 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 511,
+              "id": 955,
               "name": "IAccessControl",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 506,
-              "src": "299:14:3"
+              "referencedDeclaration": 950,
+              "src": "299:14:6"
             },
-            "id": 512,
+            "id": 956,
             "nodeType": "InheritanceSpecifier",
-            "src": "299:14:3"
+            "src": "299:14:6"
           }
         ],
         "canonicalName": "IAccessControlEnumerable",
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 510,
+          "id": 954,
           "nodeType": "StructuredDocumentation",
-          "src": "161:99:3",
+          "src": "161:99:6",
           "text": " @dev External interface of AccessControlEnumerable declared to support ERC165 detection."
         },
         "fullyImplemented": false,
-        "id": 531,
+        "id": 975,
         "linearizedBaseContracts": [
-          531,
-          506
+          975,
+          950
         ],
         "name": "IAccessControlEnumerable",
-        "nameLocation": "271:24:3",
+        "nameLocation": "271:24:6",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 513,
+              "id": 957,
               "nodeType": "StructuredDocumentation",
-              "src": "320:574:3",
+              "src": "320:574:6",
               "text": " @dev Returns one of the accounts that have `role`. `index` must be a\n value between 0 and {getRoleMemberCount}, non-inclusive.\n Role bearers are not sorted in any particular way, and their ordering may\n change at any point.\n WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure\n you perform all queries on the same block. See the following\n https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post]\n for more information."
             },
             "functionSelector": "9010d07c",
-            "id": 522,
+            "id": 966,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getRoleMember",
-            "nameLocation": "908:13:3",
+            "nameLocation": "908:13:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 518,
+              "id": 962,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 515,
+                  "id": 959,
                   "mutability": "mutable",
                   "name": "role",
-                  "nameLocation": "930:4:3",
+                  "nameLocation": "930:4:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 522,
-                  "src": "922:12:3",
+                  "scope": 966,
+                  "src": "922:12:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -334,10 +334,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 514,
+                    "id": 958,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "922:7:3",
+                    "src": "922:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -347,13 +347,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 517,
+                  "id": 961,
                   "mutability": "mutable",
                   "name": "index",
-                  "nameLocation": "944:5:3",
+                  "nameLocation": "944:5:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 522,
-                  "src": "936:13:3",
+                  "scope": 966,
+                  "src": "936:13:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -361,10 +361,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 516,
+                    "id": 960,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "936:7:3",
+                    "src": "936:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -373,21 +373,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "921:29:3"
+              "src": "921:29:6"
             },
             "returnParameters": {
-              "id": 521,
+              "id": 965,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 520,
+                  "id": 964,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 522,
-                  "src": "974:7:3",
+                  "scope": 966,
+                  "src": "974:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -395,10 +395,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 519,
+                    "id": 963,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "974:7:3",
+                    "src": "974:7:6",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -408,42 +408,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "973:9:3"
+              "src": "973:9:6"
             },
-            "scope": 531,
-            "src": "899:84:3",
+            "scope": 975,
+            "src": "899:84:6",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 523,
+              "id": 967,
               "nodeType": "StructuredDocumentation",
-              "src": "989:157:3",
+              "src": "989:157:6",
               "text": " @dev Returns the number of accounts that have `role`. Can be used\n together with {getRoleMember} to enumerate all bearers of a role."
             },
             "functionSelector": "ca15c873",
-            "id": 530,
+            "id": 974,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getRoleMemberCount",
-            "nameLocation": "1160:18:3",
+            "nameLocation": "1160:18:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 526,
+              "id": 970,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 525,
+                  "id": 969,
                   "mutability": "mutable",
                   "name": "role",
-                  "nameLocation": "1187:4:3",
+                  "nameLocation": "1187:4:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 530,
-                  "src": "1179:12:3",
+                  "scope": 974,
+                  "src": "1179:12:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -451,10 +451,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 524,
+                    "id": 968,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1179:7:3",
+                    "src": "1179:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -463,21 +463,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1178:14:3"
+              "src": "1178:14:6"
             },
             "returnParameters": {
-              "id": 529,
+              "id": 973,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 528,
+                  "id": 972,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 530,
-                  "src": "1216:7:3",
+                  "scope": 974,
+                  "src": "1216:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -485,10 +485,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 527,
+                    "id": 971,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1216:7:3",
+                    "src": "1216:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -497,38 +497,38 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1215:9:3"
+              "src": "1215:9:6"
             },
-            "scope": 531,
-            "src": "1151:74:3",
+            "scope": 975,
+            "src": "1151:74:6",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 532,
-        "src": "261:966:3",
+        "scope": 976,
+        "src": "261:966:6",
         "usedErrors": []
       }
     ],
-    "src": "104:1124:3"
+    "src": "104:1124:6"
   },
   "legacyAST": {
     "absolutePath": "@openzeppelin/contracts/access/IAccessControlEnumerable.sol",
     "exportedSymbols": {
       "IAccessControl": [
-        506
+        950
       ],
       "IAccessControlEnumerable": [
-        531
+        975
       ]
     },
-    "id": 532,
+    "id": 976,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 508,
+        "id": 952,
         "literals": [
           "solidity",
           "^",
@@ -536,17 +536,17 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "104:23:3"
+        "src": "104:23:6"
       },
       {
         "absolutePath": "@openzeppelin/contracts/access/IAccessControl.sol",
         "file": "./IAccessControl.sol",
-        "id": 509,
+        "id": 953,
         "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 532,
-        "sourceUnit": 507,
-        "src": "129:30:3",
+        "scope": 976,
+        "sourceUnit": 951,
+        "src": "129:30:6",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -555,64 +555,64 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 511,
+              "id": 955,
               "name": "IAccessControl",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 506,
-              "src": "299:14:3"
+              "referencedDeclaration": 950,
+              "src": "299:14:6"
             },
-            "id": 512,
+            "id": 956,
             "nodeType": "InheritanceSpecifier",
-            "src": "299:14:3"
+            "src": "299:14:6"
           }
         ],
         "canonicalName": "IAccessControlEnumerable",
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 510,
+          "id": 954,
           "nodeType": "StructuredDocumentation",
-          "src": "161:99:3",
+          "src": "161:99:6",
           "text": " @dev External interface of AccessControlEnumerable declared to support ERC165 detection."
         },
         "fullyImplemented": false,
-        "id": 531,
+        "id": 975,
         "linearizedBaseContracts": [
-          531,
-          506
+          975,
+          950
         ],
         "name": "IAccessControlEnumerable",
-        "nameLocation": "271:24:3",
+        "nameLocation": "271:24:6",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "documentation": {
-              "id": 513,
+              "id": 957,
               "nodeType": "StructuredDocumentation",
-              "src": "320:574:3",
+              "src": "320:574:6",
               "text": " @dev Returns one of the accounts that have `role`. `index` must be a\n value between 0 and {getRoleMemberCount}, non-inclusive.\n Role bearers are not sorted in any particular way, and their ordering may\n change at any point.\n WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure\n you perform all queries on the same block. See the following\n https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post]\n for more information."
             },
             "functionSelector": "9010d07c",
-            "id": 522,
+            "id": 966,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getRoleMember",
-            "nameLocation": "908:13:3",
+            "nameLocation": "908:13:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 518,
+              "id": 962,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 515,
+                  "id": 959,
                   "mutability": "mutable",
                   "name": "role",
-                  "nameLocation": "930:4:3",
+                  "nameLocation": "930:4:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 522,
-                  "src": "922:12:3",
+                  "scope": 966,
+                  "src": "922:12:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -620,10 +620,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 514,
+                    "id": 958,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "922:7:3",
+                    "src": "922:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -633,13 +633,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 517,
+                  "id": 961,
                   "mutability": "mutable",
                   "name": "index",
-                  "nameLocation": "944:5:3",
+                  "nameLocation": "944:5:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 522,
-                  "src": "936:13:3",
+                  "scope": 966,
+                  "src": "936:13:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -647,10 +647,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 516,
+                    "id": 960,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "936:7:3",
+                    "src": "936:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -659,21 +659,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "921:29:3"
+              "src": "921:29:6"
             },
             "returnParameters": {
-              "id": 521,
+              "id": 965,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 520,
+                  "id": 964,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 522,
-                  "src": "974:7:3",
+                  "scope": 966,
+                  "src": "974:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -681,10 +681,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 519,
+                    "id": 963,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "974:7:3",
+                    "src": "974:7:6",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -694,42 +694,42 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "973:9:3"
+              "src": "973:9:6"
             },
-            "scope": 531,
-            "src": "899:84:3",
+            "scope": 975,
+            "src": "899:84:6",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "documentation": {
-              "id": 523,
+              "id": 967,
               "nodeType": "StructuredDocumentation",
-              "src": "989:157:3",
+              "src": "989:157:6",
               "text": " @dev Returns the number of accounts that have `role`. Can be used\n together with {getRoleMember} to enumerate all bearers of a role."
             },
             "functionSelector": "ca15c873",
-            "id": 530,
+            "id": 974,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getRoleMemberCount",
-            "nameLocation": "1160:18:3",
+            "nameLocation": "1160:18:6",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 526,
+              "id": 970,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 525,
+                  "id": 969,
                   "mutability": "mutable",
                   "name": "role",
-                  "nameLocation": "1187:4:3",
+                  "nameLocation": "1187:4:6",
                   "nodeType": "VariableDeclaration",
-                  "scope": 530,
-                  "src": "1179:12:3",
+                  "scope": 974,
+                  "src": "1179:12:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -737,10 +737,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 524,
+                    "id": 968,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1179:7:3",
+                    "src": "1179:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -749,21 +749,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1178:14:3"
+              "src": "1178:14:6"
             },
             "returnParameters": {
-              "id": 529,
+              "id": 973,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 528,
+                  "id": 972,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 530,
-                  "src": "1216:7:3",
+                  "scope": 974,
+                  "src": "1216:7:6",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -771,10 +771,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 527,
+                    "id": 971,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1216:7:3",
+                    "src": "1216:7:6",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -783,21 +783,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1215:9:3"
+              "src": "1215:9:6"
             },
-            "scope": 531,
-            "src": "1151:74:3",
+            "scope": 975,
+            "src": "1151:74:6",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 532,
-        "src": "261:966:3",
+        "scope": 976,
+        "src": "261:966:6",
         "usedErrors": []
       }
     ],
-    "src": "104:1124:3"
+    "src": "104:1124:6"
   },
   "compiler": {
     "name": "solc",
@@ -805,7 +805,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2022-03-08T13:33:56.039Z",
+  "updatedAt": "2022-06-30T07:09:21.158Z",
   "devdoc": {
     "details": "External interface of AccessControlEnumerable declared to support ERC165 detection.",
     "kind": "dev",
