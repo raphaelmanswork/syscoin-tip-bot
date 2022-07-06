@@ -13,7 +13,7 @@ import { ERC20Contract } from "services/interfaces";
 import { Contract } from "web3-eth-contract/types";
 import { Wallet } from "@db";
 import { AllowanceError } from "shared/utils/AllowanceError";
-import { validateAllowance } from "shared/utils";
+import { escapeMarkdownMessage, validateAllowance } from "shared/utils";
 
 export const tip = async (bot: TelegramBot, update: Update) => {
   const {
@@ -207,7 +207,7 @@ export const tip = async (bot: TelegramBot, update: Update) => {
     );
   }
 
-  await bot.sendMessage(from!.id, message, {
+  await bot.sendMessage(from!.id, escapeMarkdownMessage(message), {
     parse_mode: "Markdown",
     reply_markup: botMessageService.confirmTxReplyMarkupWithActionType(
       "tip",

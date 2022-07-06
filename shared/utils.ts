@@ -166,6 +166,14 @@ export const validateBalance = async function (
   return isBalanceSufficient;
 };
 
+export const escapeMarkdownMessage = (message: string) => {
+  return message
+    .replace("_", "\\_")
+    .replace("*", "\\*")
+    .replace("[", "\\[")
+    .replace("`", "\\`");
+};
+
 export const botCommands = {
   standardCommands,
   privateChatCommands,
